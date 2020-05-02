@@ -3,3 +3,5 @@
 /Scripts
 /.idea
 pyvenv.cfg
+/src/GUI/search_ui.ui
+/src/GUI/__pycache__

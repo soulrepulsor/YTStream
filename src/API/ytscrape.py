@@ -10,7 +10,8 @@ class YTScrape:
     _url: str
 
     def __init__(self, keyword: str):
-        self._url = 'https://www.youtube.com/results?search_query=' + keyword
+        key = keyword.strip().replace(' ', '+')
+        self._url = 'https://www.youtube.com/results?search_query=' + key
 
     def scrape(self) -> List:
         result = []
