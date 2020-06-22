@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from typing import List, Tuple, Dict
+from typing import List
 
 import requests
 import pprint
@@ -25,7 +25,6 @@ class YTScrape:
         for i in range(len(data)):
             href = data[i]['href']
             title = data[i]['title']
-
             if 'channel' not in href and '&list=' not in href:
                 link = 'https://www.youtube.com' + href
 
@@ -41,10 +40,12 @@ class YTScrape:
                 else:
                     duration = duration1[0].strip()
 
-                result.append((title, link, duration))
+                result.append((title, link, duration.split(' ')[-1]))
 
         return result
 
 if __name__ == '__main__':
     test = YTScrape(input('Enter a search keyword: '))
+    result = test.scrape()
+
     pprint.pprint(test.scrape())

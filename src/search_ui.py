@@ -37,11 +37,9 @@ class Ui_MainWindow(object):
         self.searchButton.setObjectName("searchButton")
         self.gridLayout_2.addWidget(self.searchButton, 0, 2, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout_2)
-        self.searchTableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.searchTableWidget.setObjectName("searchTableWidget")
-        self.searchTableWidget.setColumnCount(0)
-        self.searchTableWidget.setRowCount(0)
-        self.verticalLayout.addWidget(self.searchTableWidget)
+        self.searchTableView = QtWidgets.QTableView(self.centralwidget)
+        self.searchTableView.setObjectName("searchTableView")
+        self.verticalLayout.addWidget(self.searchTableView)
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -91,7 +89,7 @@ class Ui_MainWindow(object):
     def setup_signal(self):
         event = EventHandler()
         self.searchButton.clicked.connect(lambda: event.search_button_on_click(
-            self.searchButton
+            self.searchLineEdit.text(), self.searchTableView
         ))
 
 if __name__ == "__main__":
