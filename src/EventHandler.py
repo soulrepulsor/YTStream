@@ -7,7 +7,7 @@ class EventHandler():
     def __init__(self):
         pass
 
-    def search_button_on_click(self, keyword: str,
+    def search_button_onclicked(self, keyword: str,
                                search_table: QtWidgets.QTableView):
 
         scrape = YTScrape(keyword)

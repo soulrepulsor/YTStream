@@ -40,7 +40,7 @@ class YTScrape:
                 else:
                     duration = duration1[0].strip()
 
-                result.append((title, link, duration.split(' ')[-1]))
+                result.append([title, link, duration.split(' ')[-1]])
 
         return result
 
